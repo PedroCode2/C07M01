@@ -1,3 +1,7 @@
+const { Console } = require('console');
+
+const prompt = require('prompt-sync')();
+
 console.log("Projeto Detetive");
 console.log("Responda com [S]im ou [N]ao");
 let pergunta1 = prompt("Telefonou para a vítima? ").toUpperCase();
