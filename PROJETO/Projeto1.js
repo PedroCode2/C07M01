@@ -34,5 +34,5 @@ if(pergunta5==="S"){
   }else if (count === 2 ){
     console.log("Você é Suspeito.");
   }else{
-    console.log("Você é Inocente.");
+    console.log("Você é Inocente."); 
   }
