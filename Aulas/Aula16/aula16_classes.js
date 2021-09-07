@@ -33,35 +33,35 @@ para objetos eu uso a minuscula
 
 
 
-class Pessoa{
-    constructor(nome, peso, idade){
-        this.nome = nome,
-        this.peso = peso,
-        this.idade = idade
-    }
-    envelhecer(){
-        this.idade = this.idade +1
-    }
-    emagrecer(){
-        this.peso = this.peso -1
-    }
-    engordar(){
-        this.peso = this.peso +1
-    }
-    dados(){
-        console.log(`O(A) ${this.nome} esta pesando ${this.peso} KG com ${this.idade} anos`);
-    }
-}
+// class Pessoa{
+//     constructor(nome, peso, idade){
+//         this.nome = nome,
+//         this.peso = peso,
+//         this.idade = idade
+//     }
+//     envelhecer(){
+//         this.idade = this.idade +1
+//     }
+//     emagrecer(){
+//         this.peso = this.peso -1
+//     }
+//     engordar(){
+//         this.peso = this.peso +1
+//     }
+//     dados(){
+//         console.log(`O(A) ${this.nome} esta pesando ${this.peso} KG com ${this.idade} anos`);
+//     }
+// }
 
-let pessoa = new Pessoa("Pedro", 78, 25);
+// let pessoa = new Pessoa("Pedro", 78, 25);
 
-console.log(pessoa);
-console.log();
-pessoa.envelhecer();
-pessoa.emagrecer();
-pessoa.dados();
-console.log(pessoa);
-console.log();
-pessoa.engordar();
-pessoa.dados();
-console.log(pessoa);
+// console.log(pessoa);
+// console.log();
+// pessoa.envelhecer();
+// pessoa.emagrecer();
+// pessoa.dados();
+// console.log(pessoa);
+// console.log();
+// pessoa.engordar();
+// pessoa.dados();
+// console.log(pessoa);
