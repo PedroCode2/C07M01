@@ -49,19 +49,19 @@ class Pessoa{
         this.peso = this.peso +1
     }
     dados(){
-        console.log(`O(A) ${this.nome} esta pesando ${this.peso} KG com ${this.idade} anos`)
+        console.log(`O(A) ${this.nome} esta pesando ${this.peso} KG com ${this.idade} anos`);
     }
 }
 
 let pessoa = new Pessoa("Pedro", 78, 25);
 
 console.log(pessoa);
-console.log()
+console.log();
 pessoa.envelhecer();
 pessoa.emagrecer();
-pessoa.dados()
-console.log(pessoa)
-console.log()
-pessoa.engordar()
-pessoa.dados()
-console.log(pessoa)
+pessoa.dados();
+console.log(pessoa);
+console.log();
+pessoa.engordar();
+pessoa.dados();
+console.log(pessoa);
