@@ -37,9 +37,7 @@ for(let b = 0; b < qtdjogador; b++){
     for(let c = 0; c < qtdjogador; c++){
        listajogadores[c].numero = Math.floor(Math.random() * (6 - 1 + 1) + 1);
     } 
-    listajogadores.sort(function(x,y){
-        return y.numero - x.numero
-            });
+    
         //Para mostrar de uma forma bonita o jogo acontecendo //
 for (let c = 0; c < listajogadores.length; c++){
     console.log()

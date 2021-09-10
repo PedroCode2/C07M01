@@ -11,8 +11,8 @@ var numero = 30;
 
 // // O do while funciona da mesma forma, porém, ele vai fazer o teste da condição DEPOIS de executar o código, então o bloco será executado pelo menos uma vez.
 // do {
-//   numero = +prompt("Digite um número maior que 50")
-//   }
+  // numero = +prompt("Digite um número maior que 50")
+  // }
 // } while(numero <= 50)
 
 // console.log("Saiu do while")
