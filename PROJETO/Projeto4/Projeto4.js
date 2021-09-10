@@ -14,18 +14,18 @@ console.log("A Eleição está começando.")
 
 function autorizaVoto(anoNascimento){
     anoNascimento = +prompt("Em que Ano você nasceu? "); 
-    var anoatual = new Date().getFullYear()
+    var anoatual = new Date().getFullYear();
     idade = anoatual - anoNascimento;
     var autorizacao; 
 if(idade < 16){
     autorizacao = 'Voto Negado';
-    return autorizacao
+    return autorizacao;
 }else if((idade < 18) || (idade > 65)){
     autorizacao = 'Voto Opcional';
-    return autorizacao
+    return autorizacao;
 }else {
     autorizacao = 'Voto Obrigatório';
-    return autorizacao
+    return autorizacao;
 }
 }
 
@@ -34,14 +34,14 @@ function votacao(autorizacao, voto){
     var votar = prompt("______Vai começar a votar?_____ ").toUpperCase();
     
     if (votar === "NAO"){
-        console.log("Ok, até a hora em que for votar!!")
+        console.log("Ok, até a hora em que for votar!!");
     } else if(autorizacao === 'Voto Negado'){
         console.log(`Com ${idade} anos você não pode votar!`);
       
     }   else if(autorizacao === "Voto Opcional"){
     console.log(`Com ${idade} anos o voto é opcional`);
     console.log()
-        var votar = prompt("Seu voto é opcional, você deseja votar !? ")
+        var votar = prompt("Seu voto é opcional, você deseja votar !? ");
         while(votar != "NAO"){
     console.log(`
     1 = Candidato 1
@@ -55,8 +55,8 @@ function votacao(autorizacao, voto){
     5 = Voto em branco
     ------------------
     `);
-    console.log()
-        let voto = +prompt("Em quem você vai seu voto? ")
+    console.log();
+        let voto = +prompt("Em quem você vai seu voto? ");
     
         if(voto === 1 ){
         candidato1 ++;
@@ -71,7 +71,7 @@ function votacao(autorizacao, voto){
         }   else {
         console.log("Voto invalido.");
         }
-        console.clear()
+        console.clear();
         var votar = prompt("Deseja continuar votando? ").toUpperCase();
         }
     }else if(autorizacao === 'Voto Obrigatório') {
@@ -92,7 +92,7 @@ function votacao(autorizacao, voto){
             ------------------
             `);
               
-            let voto = +prompt("Em quem você vai seu voto? ")
+            let voto = +prompt("Em quem você vai seu voto? ");
         
             if(voto === 1 ){
             candidato1 ++;
@@ -107,13 +107,13 @@ function votacao(autorizacao, voto){
             }   else {
             console.log("Voto invalido.");
             }
-            console.clear()
+            console.clear();
             var votar = prompt("Deseja continuar votando? ").toUpperCase();
         }
     }
     
 }
-console.clear()
+console.clear();
 
 function exibirResultados(){
     console.log(`O Candidato1 recebeu ${candidato1} votos.`);
@@ -134,6 +134,6 @@ function exibirResultados(){
 
 var autorizacao = autorizaVoto(anoNascimento);
 
-votacao(autorizacao, voto)
+votacao(autorizacao, voto);
 
-exibirResultados()
+exibirResultados();
