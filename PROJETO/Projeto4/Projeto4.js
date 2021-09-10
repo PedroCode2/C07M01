@@ -2,7 +2,7 @@ const { auto } = require('async');
 
 const prompt = require('prompt-sync')();
 
-console.log("______ A eleição vai começar, escolha seu candidato ______")
+console.log("______ A eleição vai começar ______")
 
  var candidato1 = 0;
  var candidato2= 0;
@@ -41,7 +41,7 @@ function votacao(autorizacao, voto){
     }   else if(autorizacao === "Voto Opcional"){
     console.log(`Com ${idade} anos o voto é opcional`);
     console.log()
-        
+        var votar = prompt("Seu voto é opcional, você deseja votar !? ")
         while(votar != "NAO"){
     
         let voto = +prompt("Digite 1 para votar no candidato 1, 2 para o candidato 2 e 3 para o candidato 3, Digite 4 para votar nulo e digite 5 para votar em branco: ")
