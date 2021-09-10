@@ -2,8 +2,7 @@ const { auto } = require('async');
 
 const prompt = require('prompt-sync')();
 
-console.log("______ A eleição vai começar ______")
-
+console.log("A Eleição está começando.")
  var candidato1 = 0;
  var candidato2= 0;
  var candidato3 = 0; 
@@ -33,6 +32,7 @@ if(idade < 16){
 function votacao(autorizacao, voto){
     
     var votar = prompt("______Vai começar a votar?_____ ").toUpperCase();
+    
     if (votar === "NAO"){
         console.log("Ok, até a hora em que for votar!!")
     } else if(autorizacao === 'Voto Negado'){
@@ -43,8 +43,20 @@ function votacao(autorizacao, voto){
     console.log()
         var votar = prompt("Seu voto é opcional, você deseja votar !? ")
         while(votar != "NAO"){
-    
-        let voto = +prompt("Digite 1 para votar no candidato 1, 2 para o candidato 2 e 3 para o candidato 3, Digite 4 para votar nulo e digite 5 para votar em branco: ")
+    console.log(`
+    1 = Candidato 1
+    ---------------
+    2 = Candidato 2
+    ---------------
+    3 = Candidato 3
+    ---------------
+    4 = Voto nulo
+    ---------------
+    5 = Voto em branco
+    ------------------
+    `);
+    console.log()
+        let voto = +prompt("Em quem você vai seu voto? ")
     
         if(voto === 1 ){
         candidato1 ++;
@@ -59,6 +71,7 @@ function votacao(autorizacao, voto){
         }   else {
         console.log("Voto invalido.");
         }
+        console.clear()
         var votar = prompt("Deseja continuar votando? ").toUpperCase();
         }
     }else if(autorizacao === 'Voto Obrigatório') {
@@ -66,7 +79,20 @@ function votacao(autorizacao, voto){
         console.log();
         while(votar != "NAO"){
     
-            let voto = +prompt("Digite 1 para votar no candidato 1, 2 para o candidato 2 e 3 para o candidato 3, Digite 4 para votar nulo e digite 5 para votar em branco: ")
+            console.log(`
+            1 = Candidato 1
+            ---------------
+            2 = Candidato 2
+            ---------------
+            3 = Candidato 3
+            ---------------
+            4 = Voto nulo
+            ---------------
+            5 = Voto em branco
+            ------------------
+            `);
+              
+            let voto = +prompt("Em quem você vai seu voto? ")
         
             if(voto === 1 ){
             candidato1 ++;
@@ -81,11 +107,13 @@ function votacao(autorizacao, voto){
             }   else {
             console.log("Voto invalido.");
             }
+            console.clear()
             var votar = prompt("Deseja continuar votando? ").toUpperCase();
-            }
+        }
     }
     
 }
+console.clear()
 
 function exibirResultados(){
     console.log(`O Candidato1 recebeu ${candidato1} votos.`);
