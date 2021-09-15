@@ -97,10 +97,40 @@ class Personagem {
 
     }
 }
+class Assassino extends Personagem{
+    constructor(){
+        super(personagem.cansado)
+        // this.cansado = false
+        this.arma = false;
+    }
+
+ 
+    cansar(){
+        if(personagem.cansado == false){
+            this.cansado = true;
+            console.log("O Assassino ficou cansado e parou de te perseguir.");
+    }
+     }
+    lutar(){
+        if(personagem.medo == true){
+            this.arma = true;
+            console.log("O Assassino puxou um facão enquanto Vocês lutavam");
+        }
+    } 
+    seArmar(){
+     if(personagem.medo == true){
+         this.arma = true;
+         console.log("O Assassino puxou um Facão que estava guardado na sua cintura")
+     }
+    }
+ 
+}
 // Atribuindo as duas classes a uma variavel//
 var horario = new Relogio();
 
 var personagem = new Personagem();
+
+var assassino = new Assassino
 console.log(`                   Corra pela sua vida
     Você decide passar as férias acampados em uma cabana na floresta, mas mal sabia o que o esperava.
 Existia um Serial killer desconhecido que vivia naquela floresta, esse serial killer ira perturbar
@@ -163,52 +193,63 @@ while(true){
     else if (escolha == 6){
         if(personagem.medo == true){
         console.log("Você pensa em sair para andar pela floresta mas lembra do Assassino que tem a Solta na sua região.")
-        }else{    
-        console.log("Você saiu para caminhar na floresta e ficou algumas horas fora");
-        console.clear();
-        horario.avancaTempo(240);
-        console.log();
-        if((horario.Horas >= 23) || (horario.Horas <= 06)){
-            horario.mostrarHorario()
+        }else{   
+            console.clear()
+            console.log("Você saiu para caminhar na floresta e ficou algumas horas fora");
+            horario.avancaTempo(240);
             console.log();
-            console.log("Você saiu pra caminhar muito tarde e escutou barulhos estranhos na floresta");
-            personagem.medo = true
-        }if (personagem.medo == true){
-            console.log();
-            console.log("Você encontrou o Assassino na floresta e ele começou a te perseguir");
-            sleep(500)
-            console.log(`
-            selecione uma opção
-            1 Correr
-            2 Tentar enfrentrar o Assassino`);
-            let seleciona = +prompt("Qual a sua escolha? ");
-            if(seleciona == 1 && personagem.cansado == true){
-                console.log("Voce tentou correr do Assassino mas estava cansado e acabou caindo \n ele te pegou e te matou.");
-                sleep(500);
-                console.log(`Você morreu as ${horario.Horas}:${horario.Minutos} do dia ${horario.dia}`);
+            personagem.cansado = true
+            if((horario.Horas >= 23) || (horario.Horas <= 06)){
+                horario.mostrarHorario()
                 console.log();
-                break
-            }else if(seleciona == 1 && personagem.cansado == false){
-                console.log("Você tentou correr do Assassino");
+                console.log("Você saiu pra caminhar muito tarde e escutou barulhos estranhos na floresta");
+                personagem.medo = true
+            }if (personagem.medo == true){
                 console.log();
-                sleep(500);
-                console.log("Você fugiu com sucesso do Assassino e trancou toda a Cabana.");
-                personagem.cansado = true
-            }else if(seleciona == 2 && personagem.cansado == true){
-                console.log("Você tentou lutar contra o Assassino.");
-                console.log();
-                sleep(500);
-                console.log("Você perdeu a luta para o Assassino e ele te matou.");
-                sleep(500);
-                console.log(`Você morreu as ${horario.Horas}:${horario.Minutos} do dia ${horario.dia}`);
-                console.log();
-                break
-            }else if(seleciona == 2 && personagem.cansado == false){
-                console.log("Você tentou lutar contra o Assassino");
-                console.log();
-                sleep(500);
-                console.log("Você estava bem e conseguiu derrubar o assassino, Você conseguiu fugir e trancou toda a cabana.");
-                personagem.cansado = true;
+                console.log("Você encontrou o Assassino na floresta e ele começou a te perseguir");
+                sleep(500)
+                console.log(`
+                selecione uma opção
+                1 Correr
+                2 Tentar enfrentrar o Assassino`);
+                let seleciona = +prompt("Qual a sua escolha? ");
+                if(seleciona == 1 && personagem.cansado == true){
+                    console.log("Voce tentou correr do Assassino mas estava cansado");
+                    assassino.seArmar();
+                    sleep(500);
+                    console.log("Você olhou para tras e viu o assassino com um facão, isso te desconcentrou e você caiu")
+                    sleep(500);
+                    console.log("O Assassino te alcançou e te matou.");
+                    sleep(500);
+                    console.log(`Você morreu as ${horario.Horas}:${horario.Minutos} do dia ${horario.dia}`);
+                    console.log();
+                    break
+                }else if(seleciona == 1 && personagem.cansado == false){
+                    console.log("Você tentou correr do Assassino");
+                    console.log();
+                    sleep(500);
+                    assassino.cansar()
+                    sleep(500);
+                    console.log("Você fugiu com sucesso do Assassino e trancou toda a Cabana.");
+                    personagem.cansado = true
+                    horario.avancaTempo(120);
+                }else if(seleciona == 2 && personagem.cansado == true){
+                    console.log("Você tentou lutar contra o Assassino.");
+                    console.log();
+                    sleep(500);
+                    assassino.lutar();
+                    sleep(500);
+                    console.log("Você perdeu a luta para o Assassino e ele te matou.");
+                    sleep(500);
+                    console.log(`Você morreu as ${horario.Horas}:${horario.Minutos} do dia ${horario.dia}`);
+                    console.log();
+                    break
+                }else if(seleciona == 2 && personagem.cansado == false){
+                    console.log("Você tentou lutar contra o Assassino");
+                    console.log();
+                    sleep(500);
+                    console.log("Você estava bem e conseguiu derrubar o assassino, Você conseguiu fugir e trancou toda a cabana.");
+                    personagem.cansado = true;
             }
             
         }
