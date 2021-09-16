@@ -117,63 +117,75 @@ console.log("Após um dia longo de viagem finalmente cheguei na cabana dos meus 
 
 console.log();
 // // Inicio do jogo que sempre recebera true pois não existe um prompt // // 
-while(true){
-    personagem.informacoes()
-    console.log(`
-    Selecione uma opção:
-    1 - Limpar a cabana, arrumar tudo;
-    2 - Comer comida
-    3 - Tomar banho e escovar os dentes;
-    4 - Se preparar e ir dormir
-    5 - Sair para dar uma volta na floresta
-    0 - Desistir
-    `);
-    
-    let escolha = +prompt("Faça a sua escolha: ");
-    
-    if(escolha == 1){
-        console.clear()
-        personagem.limparcasa();
-        horario.mostrarHorario();
-    }
-    else if(escolha == 2){
-        personagem.comer()
-        horario.mostrarHorario()
-    }
-    else if(escolha == 3){
-        console.clear()
-        personagem.tomarBanho()
-        horario.mostrarHorario()
-    }
-    else if (escolha == 4){
-        console.clear()
-        personagem.dormir();
-    }
-    else if (escolha == 5){
-        console.log("Você saiu para caminhar na floresta é ficou algumas horas fora");
-        horario.avancaTempo(240);
-        horario.mostrarHorario();
-        console.log();
-        // aqui eu adiciono medo ao meu personagem por sair para caminhar na floresta sozinho//
-        personagem.medo = false
-        if(horario.Horas >= 23){
+function inicio (){
+        while(true){
+        personagem.informacoes()
+        console.log(`
+        Selecione uma opção:
+        1 - Limpar a cabana, arrumar tudo;
+        2 - Comer comida
+        3 - Tomar banho e escovar os dentes;
+        4 - Se preparar e ir dormir
+        5 - Sair para dar uma volta na floresta
+        0 - Desistir
+        `);
+        
+        let escolha = +prompt("Faça a sua escolha: ");
+        
+        if(escolha == 1){
+            console.clear()
+            personagem.limparcasa();
+            horario.mostrarHorario();
+        }
+        else if(escolha == 2){
+            personagem.comer()
             horario.mostrarHorario()
+        }
+        else if(escolha == 3){
+            console.clear()
+            personagem.tomarBanho()
+            horario.mostrarHorario()
+        }
+        else if (escolha == 4){
+            console.clear()
+            personagem.dormir();
+        }
+        else if (escolha == 5){
+            console.log("Você saiu para caminhar na floresta é ficou algumas horas fora");
+            horario.avancaTempo(240);
+            horario.mostrarHorario();
             console.log();
-            console.log("Você saiu pra caminhar muito tarde e escutou barulhos estranhos na floresta");
-            personagem.medo = true
-        }if (personagem.medo == true){
-            console.log()
-            console.log("Você ficou com medo e se desesperou, encontrou o assassino que estava na floresta.. ele te matou");
-            console.log()
-            console.log(`Você morreu as ${horario.mostrarHorario()} do dia ${horario.dia}`)
+            // aqui eu adiciono medo ao meu personagem por sair para caminhar na floresta sozinho//
+            personagem.medo = false
+            if(horario.Horas >= 23){
+                horario.mostrarHorario()
+                console.log();
+                console.log("Você saiu pra caminhar muito tarde e escutou barulhos estranhos na floresta");
+                personagem.medo = true
+            }if (personagem.medo == true){
+                console.log()
+                console.log("Você ficou com medo e se desesperou, encontrou o assassino que estava na floresta.. ele te matou");
+                console.log()
+                console.log(`Você morreu as ${horario.mostrarHorario()} do dia ${horario.dia}`)
+                break
+            }
+        }else if (escolha == 0){
+            console.log("Você desistiu do jogo")
+            break
+        }else if(horario.dia === 10){
+            console.log("Você sobreviveu por 10 dias, Parabens!! Você ganhou.")
             break
         }
-    }else if (escolha == 0){
-        console.log("Você desistiu do jogo")
-        break
-    }else if(horario.dia === 10){
-        console.log("Você sobreviveu por 10 dias, Parabens!! Você ganhou.")
-        break
     }
 }
+inicio();
+function repetir(){
+    let novamente = prompt("Deseja jogar novamente ?").toUpperCase();
+    if(novamente == "Sim"){
+        while(novamente){
+            inicio();
+        }
+    }
+}
+repetir();
 // // Fim do programa que roda todo o jogo de escolhas // // 
