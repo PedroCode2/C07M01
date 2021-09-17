@@ -37,15 +37,15 @@ class Personagem {
     
     }
     limparcasa(){
-        console.log("Você escolheu limpar a casa");
+        console.log("Você escolheu limpar a cabana");
         this.cansado = true;
         this.sujo = true;
         this.fome = true;
         console.log();
-        console.log("Você demorou 3 horas para limpar a casa");
+        console.log("Você demorou 3 horas para limpar a cabana");
         horario.avancaTempo(180);
         if (this.cansado == true){
-            console.log("Você esta cansado demais para limpar a casa, va fazer outra coisa.");
+            console.log("Você esta cansado demais para limpar a cabana, va fazer outra coisa.");
         }
     }
     
@@ -198,12 +198,13 @@ while(true){
             console.log("Você saiu para caminhar na floresta e ficou algumas horas fora");
             horario.avancaTempo(240);
             console.log();
-            personagem.cansado = true
+            personagem.fome = true;
+            personagem.cansado = true;
             if((horario.Horas >= 23) || (horario.Horas <= 06)){
                 horario.mostrarHorario()
                 console.log();
                 console.log("Você saiu pra caminhar muito tarde e escutou barulhos estranhos na floresta");
-                personagem.medo = true
+                personagem.medo = true;
             }if (personagem.medo == true){
                 console.log();
                 console.log("Você encontrou o Assassino na floresta e ele começou a te perseguir");
@@ -231,7 +232,8 @@ while(true){
                     assassino.cansar()
                     sleep(500);
                     console.log("Você fugiu com sucesso do Assassino e trancou toda a Cabana.");
-                    personagem.cansado = true
+                    personagem.cansado = true;
+                    personagem.fome = true;
                     horario.avancaTempo(120);
                 }else if(seleciona == 2 && personagem.cansado == true){
                     console.log("Você tentou lutar contra o Assassino.");
@@ -259,4 +261,4 @@ while(true){
         break
     }
 }
-// // Fim do programa que roda todo o jogo de escolhas // // 
+// // Fim do programa 
