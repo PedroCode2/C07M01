@@ -99,8 +99,7 @@ class Personagem {
 }
 class Assassino extends Personagem{
     constructor(){
-        super(personagem.cansado)
-        // this.cansado = false
+        super(personagem.cansado);
         this.arma = false;
     }
 
