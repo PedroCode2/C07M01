@@ -83,6 +83,7 @@ class Personagem {
         }else {
             console.log("Você não estava cansado o suficiente então, dormiu por 4 horas");
             horario.avancaTempo(240);
+            sleep();
             horario.mostrarHorario();
         }
 }
